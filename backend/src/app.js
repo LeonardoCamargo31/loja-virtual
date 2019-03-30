@@ -2,27 +2,16 @@ require("dotenv").config({
     path: process.env.NODE_ENV === "test" ? ".env.test" : ".env"
 });
 
-const express = require("express");
+const express = require('express')
+const bodyParser = require('body-parser')
+
+const app=express()//inicializando nossa aplicação
 
 
-class AppController {
-    constructor() {
-        this.express = express();
+app.use(bodyParser.json())//para ele entender quando enviar uma requisão com informações em json
+app.use(bodyParser.urlencoded({extended:false}))//para ele entender quando passar parametros via url
 
-        this.middlewares();
-        this.routes();
-    }
+//passo a app para rota
+require('./routes')(app)
 
-    middlewares() {
-        //para entender os corpos em formato json
-        this.express.use(express.json());
-    }
-
-    routes() {
-        this.express.use(require("./routes"));
-    }
-}
-
-//separamos a logica de locação da porta pois nos teste, não quero que ele aloque nenhuma porta
-
-module.exports = new AppController().express;
+module.exports = app;

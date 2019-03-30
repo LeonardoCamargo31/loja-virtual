@@ -10,7 +10,7 @@ module.exports = {
   database: process.env.DB_NAME,
   dialect: process.env.DB_DIALECT || "mysql",
   storage: "./__tests__/database.sqlite",//meu banco de teste sera alocado aqui
-  operatorsAliases: false,
+  //operatorsAliases: false,
   logging: false,
   define: {
     timestamps: true,//para toda tabela venha com createAt e UpdateAt para acada registro

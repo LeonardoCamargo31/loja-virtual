@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>0/12</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -73,59 +73,59 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const jwt = require("jsonwebtoken");
-const { promisify } = require("util");//promisify transformar o callback em uma promisse assim consigo usar o await
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const jwt = <span class="cstat-no" title="statement not covered" >require("jsonwebtoken");</span>
+const { promisify } = <span class="cstat-no" title="statement not covered" >require("util");</span>//promisify transformar o callback em uma promisse assim consigo usar o await
 &nbsp;
 //esse middleware valida nosso token
-module.exports = async (req, res, next) =&gt; {
-    const authHeader = req.headers.authorization;
+<span class="cstat-no" title="statement not covered" >module.exports = <span class="fstat-no" title="function not covered" >as</span>ync (req, res, next) =&gt; {</span>
+    const authHeader = <span class="cstat-no" title="statement not covered" >req.headers.authorization;</span>
 &nbsp;
     //verificando se existe o cabeçalho authorization
-    if (!authHeader) {
-        return res.status(401).json({ message: "Token not provided" });
+<span class="cstat-no" title="statement not covered" >    if (!authHeader) {</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(401).json({ message: "Token not provided" });</span>
     }
 &nbsp;
-    const [, token] = authHeader.split(" ");
+    const [, token] = <span class="cstat-no" title="statement not covered" >authHeader.split(" ");</span>
 &nbsp;
-    try {
+<span class="cstat-no" title="statement not covered" >    try {</span>
         //validando se o token é valido
         //promisify(jwt.verify) passo a função que quero trasnformar em uma promisse
-        const decoded = await promisify(jwt.verify)(token, process.env.APP_SECRET);
+        const decoded = <span class="cstat-no" title="statement not covered" >await promisify(jwt.verify)(token, process.env.APP_SECRET);</span>
 &nbsp;
         //dentro do token tem o id, então decodifico
-        req.userId = decoded.id;
+<span class="cstat-no" title="statement not covered" >        req.userId = decoded.id;</span>
 &nbsp;
-        return next();
+<span class="cstat-no" title="statement not covered" >        return next();</span>
     } catch (err) {
         //caso de erro
-        return res.status(401).json({ message: "Token invalid" });
+<span class="cstat-no" title="statement not covered" >        return res.status(401).json({ message: "Token invalid" });</span>
     }
 };</pre></td></tr>
 </table></pre>
@@ -133,7 +133,7 @@ module.exports = async (req, res, next) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 28 2019 15:28:42 GMT-0300 (Hora oficial do Brasil)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 29 2019 11:24:36 GMT-0300 (Hora oficial do Brasil)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>
