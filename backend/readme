@@ -75,7 +75,7 @@ para testar uma rota na aplicação, o jest não vem com isso, instalamos o supe
 
 
 
-
+ 
 
 entender o que preciso testar , o quanto preciso testar, o jest no terminal, ele retorna todos os arquivo da nossa aplicação no caso que vc configurou em jest.config
 e quanto % foi testado, e em uncovered line estão as linhas que não foram testadas, se abrirmos o coverage/ lcov-report/index.html

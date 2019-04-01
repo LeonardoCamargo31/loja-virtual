@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553869476674" clover="3.2.0">
-  <project timestamp="1553869476674" name="All files">
-    <metrics statements="92" coveredstatements="67" conditionals="21" coveredconditionals="12" methods="14" coveredmethods="11" elements="127" coveredelements="90" complexity="0" loc="92" ncloc="92" packages="5" files="9" classes="9"/>
+<coverage generated="1554126269723" clover="3.2.0">
+  <project timestamp="1554126269723" name="All files">
+    <metrics statements="104" coveredstatements="82" conditionals="25" coveredconditionals="14" methods="14" coveredmethods="13" elements="143" coveredelements="109" complexity="0" loc="104" ncloc="104" packages="5" files="9" classes="9"/>
     <package name="src">
-      <metrics statements="15" coveredstatements="13" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="15" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="app.js" path="C:\Users\Pichau\Desktop\projetos\loja-virtual\backend\src\app.js">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
       </file>
       <file name="routes.js" path="C:\Users\Pichau\Desktop\projetos\loja-virtual\backend\src\routes.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -30,7 +32,7 @@
       </file>
     </package>
     <package name="src.app.controllers">
-      <metrics statements="35" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="3"/>
+      <metrics statements="45" coveredstatements="38" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="5"/>
       <file name="SessionController.js" path="C:\Users\Pichau\Desktop\projetos\loja-virtual\backend\src\app\controllers\SessionController.js">
         <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
@@ -47,7 +49,7 @@
         <line num="28" count="2" type="stmt"/>
       </file>
       <file name="UserController.js" path="C:\Users\Pichau\Desktop\projetos\loja-virtual\backend\src\app\controllers\UserController.js">
-        <metrics statements="23" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="33" coveredstatements="26" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -59,18 +61,28 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.app.middleware">
@@ -99,8 +111,8 @@
         <line num="2" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="14" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="15" count="7" type="stmt"/>
+        <line num="14" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="9" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
