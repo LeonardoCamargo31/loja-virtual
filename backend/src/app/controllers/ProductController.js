@@ -4,25 +4,35 @@ const { Product } = require("../models");
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const products = await Product.findAll();
-    return res.status(200).send({ products })
+    try {
+        const products = await Product.findAll();
+        return res.status(200).send(responseFormat(true, 'Todos os produtos foram encontrados', products))
+    }
+    catch (err) {
+        return res.status(400).send(responseFormat(false, 'Não foi possível encontrar os produtos', err));
+    }
 })
 
 router.get('/:idCategory', async (req, res) => {
-    const id = req.params.idCategory
-    const category = await Category.findByPk(id);
-    return res.status(200).send({ category })
+    try {
+        const id = req.params.idCategory
+        const category = await Category.findByPk(id);
+        return res.status(200).send(responseFormat(true, 'Produto encontrada', category))
+    }
+    catch (err) {
+        return res.status(400).send(responseFormat(false, 'Não foi possível encontrar o produto', err));
+    }
 })
 
 router.post('/', async (req, res) => {
     try {
         const { title, description, price, category } = req.body;
 
-        const product = await Product.create({  title, description, price, category })
-        return res.status(200).send({ product })
+        const product = await Product.create({ title, description, price, category })
+        return res.status(200).send(responseFormat(true, 'Produto inserido', product))
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error create product' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível inserir o produto', product));
     }
 })
 
@@ -43,14 +53,14 @@ router.put('/:idProduct', async (req, res) => {
                 where: { id }
             });
             product = product[0]
-            return res.status(200).send({ product })
+            return res.status(200).send(responseFormat(true, 'Produto atualizado', product))
         }
         else {
-            return res.status(400).send({ error: 'Produto não encontrado' });
+            return res.status(400).send(responseFormat(false, 'Produto não encontrado', null));
         }
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error update product' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível atualizar o produto', err));
     }
 })
 
@@ -61,15 +71,24 @@ router.delete('/:idProduct', async (req, res) => {
             where: { id }
         })
         if (result == 1) {
-            return res.status(200).send({ result: "Deletado com sucesso" })
+            return res.status(200).send(responseFormat(true, 'Produto deletado com sucesso', null))
         }
         else {
-            return res.status(400).send({ error: 'Produto não encontrado' });
+            return res.status(400).send(responseFormat(false, 'Produto não encontrado', null));
         }
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error remove product' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível deletar o produto', err));
     }
 })
+
+function responseFormat(success, msg, data) {
+    const retorno = {
+        success: success,
+        message: msg,
+        details: data
+    }
+    return retorno;
+}
 
 module.exports = router

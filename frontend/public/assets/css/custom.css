@@ -1,0 +1,13 @@
+/* your styles go here */
+.action{
+    text-align: center;
+}
+
+.action .icon{
+    cursor: pointer;
+}
+
+
+button{
+    margin-left: 15px;
+}

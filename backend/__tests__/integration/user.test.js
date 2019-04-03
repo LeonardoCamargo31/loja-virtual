@@ -15,32 +15,24 @@ describe("User", () => {
 
 
     it('Deve carregar usuario', async () => {
-        //criamos o usuario
         await factory.create("User");
 
         const response = await request(app)
-            .get("/user")//realizar um post na rota 
+            .get("/user")
 
-
-        //devemos ter um status 200
         expect(response.status).toBe(200);
     })
 
     it('Deve carregar usuario pelo id', async () => {
-        //criamos o usuario
         await factory.create("User");
 
-
         const response = await request(app)
-            .get("/user/1")//realizar um post na rota 
+            .get("/user/1")
 
-
-        //devemos ter um status 200
         expect(response.status).toBe(200);
     })
 
     it('Deve inserir um novo usuario', async () => {
-        //criamos o usuario
         const user = await factory.build("User");
 
         const response = await request(app)
@@ -51,24 +43,27 @@ describe("User", () => {
                 password: user.password
             })
 
-        //devemos ter um status 200
         expect(response.status).toBe(200);
     })
 
     it('Deve alterar o usuario', async () => {
-        //crio o usuario
-        await factory.create("User");
-        const name="teste"
+        const name = "teste"
+        const user = await factory.create("User", { name });
 
         const response = await request(app)
-            .put("/user/1")
-            .send({
-                name : name
-            })
+            .put(`/user/${user.id}`)
+            .send({ name })
+            
+        expect(response.body.details.name).toBe(name);
+    })
 
-        console.log(response.body)
-        //devemos ter um status 200
-        expect(response.body.name).toBe("teste");
+    it('Deve deletar o usuario', async () => {
+        const user = await factory.create("User");
+
+        const response = await request(app)
+            .delete(`/user/${user.id}`)
+
+        expect(response.status).toBe(200);
     })
 
 })

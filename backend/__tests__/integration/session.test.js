@@ -14,19 +14,17 @@ describe("Authentication", () => {
     });
 
     it('deve autenticar com credenciais válidas', async () => {
-        //criamos o usuario
         const user = await factory.create("User", {
-            password: "123123"//sobreponho a senha setada lá na factory
+            password: "123123"
         });
 
         const response = await request(app)
-            .post("/sessions")//realizar um post na rota 
-            .send({//passando esse corpo
+            .post("/sessions")
+            .send({
                 email: user.email,
                 password: "123123"
             });
-
-        //devemos ter um status 200
+            console.log(response.body)
         expect(response.status).toBe(200);
     })
 
@@ -41,7 +39,7 @@ describe("Authentication", () => {
                 email: user.email,
                 password: "123456"
             });
-
+            console.log(response.body)
         expect(response.status).toBe(401);
     });
 
@@ -58,7 +56,7 @@ describe("Authentication", () => {
             });
 
         //espero que no corpo da resposta tenha a propriedade token
-        expect(response.body).toHaveProperty("token");
+        expect(response.body.details).toHaveProperty("token");
     });
 
 

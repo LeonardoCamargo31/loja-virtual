@@ -4,14 +4,24 @@ const { Category, Product } = require("../models");
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const categories = await Category.findAll();
-    return res.status(200).send({ categories })
+    try {
+        const categories = await Category.findAll();
+        return res.status(200).send(responseFormat(true, 'Todas as categorias foram encontradas', categories))
+    }
+    catch (err) {
+        return res.status(400).send(responseFormat(false, 'Não foi possível encontrar as categorias', err));
+    }
 })
 
 router.get('/:idCategory', async (req, res) => {
-    const id = req.params.idCategory
-    const category = await Category.findByPk(id);
-    return res.status(200).send({ category })
+    try {
+        const id = req.params.idCategory
+        const category = await Category.findByPk(id);
+        return res.status(200).send(responseFormat(true, 'Categoria encontrada', category))
+    }
+    catch (err) {
+        return res.status(400).send(responseFormat(false, 'Não foi possível encontrar a categoria', err));
+    }
 })
 
 router.post('/', async (req, res) => {
@@ -20,10 +30,10 @@ router.post('/', async (req, res) => {
         console.log(title)
 
         const category = await Category.create({ title })
-        return res.status(200).send({ category })
+        return res.status(200).send(responseFormat(true, 'Categoria inserida', category))
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error create category' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível inserir a categoria', err));
     }
 })
 
@@ -44,14 +54,14 @@ router.put('/:idCategory', async (req, res) => {
                 where: { id }
             });
             category = category[0]
-            return res.status(200).send({ category })
+            return res.status(200).send(responseFormat(true, 'Categoria atualizada', category))
         }
         else {
-            return res.status(400).send({ error: 'Categoria não encontrado' });
+            return res.status(400).send(responseFormat(false, 'Categoria não encontrado', null));
         }
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error update category' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível atualizar a categoria', err));
     }
 })
 
@@ -59,25 +69,35 @@ router.delete('/:idCategory', async (req, res) => {
     try {
         const id = req.params.idCategory
         const products = await Product.findAll({ where: { category: id } })
-        
+
         if (products.length == 0) {
             const result = await Category.destroy({
                 where: { id }
             })
             if (result == 1) {
-                return res.status(200).send({ result: "Deletado com sucesso" })
+                return res.status(200).send(responseFormat(true, 'Categoria deletada com sucesso', null))
             }
             else {
-                return res.status(400).send({ error: 'Categoria não encontrado' });
+                return res.status(400).send(responseFormat(false, 'Categoria não encontrado', null));
             }
         }
         else {
-            return res.status(400).send({ error: 'Essa categoria tem produtos' });
+            return res.status(400).send(responseFormat(false, 'Essa categoria tem produtos', null));
         }
     }
     catch (err) {
-        return res.status(400).send({ error: 'Error remove category' });
+        return res.status(400).send(responseFormat(false, 'Não foi possível deletar a categoria', err));
     }
 })
+
+
+function responseFormat(success, msg, data) {
+    const retorno = {
+        success: success,
+        message: msg,
+        details: data
+    }
+    return retorno;
+}
 
 module.exports = router
